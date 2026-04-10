@@ -1,98 +1,100 @@
 import React from 'react';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-dark-900 relative">
+    <section id="contact" className="py-32 bg-dark-900 relative border-t border-dark-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
 
           <div>
-            <h2 className="text-forest-500 font-semibold tracking-wide uppercase text-sm mb-3">Get In Touch</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Let's build something amazing together.</h3>
-            <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-              Have a project in mind? Fill out the form, and I'll get back to you as soon as possible to discuss how we can bring your vision to life.
+            <div className="inline-flex items-center space-x-3 mb-6">
+              <span className="w-8 h-[1px] bg-moss-500" />
+              <span className="text-xs font-medium text-moss-400 uppercase tracking-widest">Get In Touch</span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl font-medium text-white leading-tight mb-8">
+              Let's build something <br/>
+              <span className="text-moss-400 italic">amazing together.</span>
+            </h2>
+            <p className="text-gray-400 text-lg mb-12 font-light leading-relaxed max-w-md">
+              Have a project in mind? Fill out the form, and I'll get back to you to discuss how we can bring your vision to life.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-dark-800 rounded-xl flex items-center justify-center flex-shrink-0 border border-dark-600">
-                  <Mail className="h-5 w-5 text-forest-500" />
+            <div className="space-y-8">
+              <div className="flex items-center space-x-6">
+                <div className="w-12 h-12 border border-dark-600 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-5 w-5 text-moss-500" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400 font-medium mb-1">Email</p>
-                  <a href="mailto:hello@carterbailey.biz" className="text-white hover:text-forest-400 transition-colors text-lg">
+                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Email</p>
+                  <a href="mailto:hello@carterbailey.biz" className="text-gray-300 hover:text-moss-400 transition-colors">
                     hello@carterbailey.biz
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-dark-800 rounded-xl flex items-center justify-center flex-shrink-0 border border-dark-600">
-                  <MapPin className="h-5 w-5 text-forest-500" />
+              <div className="flex items-center space-x-6">
+                <div className="w-12 h-12 border border-dark-600 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-5 w-5 text-moss-500" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400 font-medium mb-1">Location</p>
-                  <p className="text-white text-lg">Available Worldwide</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Location</p>
+                  <p className="text-gray-300">Available Worldwide</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-dark-800 p-8 md:p-10 rounded-3xl border border-dark-600 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-forest-900/20 rounded-full mix-blend-screen filter blur-[80px]" />
-
-            <form className="relative z-10 space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-300">Full Name</label>
+          <div className="bg-dark-800 p-10 border border-dark-600 relative">
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label htmlFor="name" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Full Name</label>
                   <input
                     type="text"
                     id="name"
-                    className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-forest-500/50 focus:border-forest-500 transition-all"
+                    className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-white focus:outline-none focus:border-moss-500 transition-colors bg-transparent"
                     placeholder="John Doe"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-300">Email Address</label>
+                <div className="space-y-3">
+                  <label htmlFor="email" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Email Address</label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-forest-500/50 focus:border-forest-500 transition-all"
+                    className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-white focus:outline-none focus:border-moss-500 transition-colors bg-transparent"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="service" className="text-sm font-medium text-gray-300">Service Interested In</label>
+              <div className="space-y-3">
+                <label htmlFor="service" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Service</label>
                 <select
                   id="service"
-                  className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-forest-500/50 focus:border-forest-500 transition-all appearance-none"
+                  className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-gray-300 focus:outline-none focus:border-moss-500 transition-colors bg-transparent appearance-none rounded-none"
                 >
-                  <option value="">Select a service</option>
-                  <option value="web">Web Development</option>
-                  <option value="app">App Development</option>
-                  <option value="custom">Custom Software</option>
-                  <option value="other">Other</option>
+                  <option value="" className="bg-dark-900">Select a service</option>
+                  <option value="web" className="bg-dark-900">Web Development</option>
+                  <option value="app" className="bg-dark-900">App Development</option>
+                  <option value="custom" className="bg-dark-900">Custom Software</option>
                 </select>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
+              <div className="space-y-3">
+                <label htmlFor="message" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Message</label>
                 <textarea
                   id="message"
-                  rows={4}
-                  className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-forest-500/50 focus:border-forest-500 transition-all resize-none"
+                  rows={3}
+                  className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-white focus:outline-none focus:border-moss-500 transition-colors bg-transparent resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-xl font-medium transition-all duration-300 shadow-[0_0_20px_rgba(22,163,74,0.2)] hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]"
+                className="w-full bg-moss-600 hover:bg-moss-500 text-white px-8 py-4 font-medium tracking-wide transition-colors duration-300 mt-4"
               >
-                <span>Send Message</span>
-                <Send className="h-4 w-4" />
+                Send Message
               </button>
             </form>
           </div>

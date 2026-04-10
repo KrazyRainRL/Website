@@ -8,22 +8,23 @@ export default {
     extend: {
       colors: {
         dark: {
-          900: '#0a0d0a', // Deepest background
-          800: '#111511', // Card background
-          700: '#1a201a', // Hover states
-          600: '#2d372d', // Borders/dividers
+          900: '#0c0c0c', // Deepest background - slightly softer black
+          800: '#141414', // Card background
+          700: '#1e1e1e', // Hover states
+          600: '#2a2a2a', // Borders/dividers
         },
-        forest: {
-          400: '#4ade80', // Lighter accent for small details
-          500: '#22c55e', // Bright accent
-          600: '#16a34a', // Primary button
-          700: '#15803d', // Hover button
-          800: '#166534', // Deep green accent
-          900: '#14532d', // Subtle background accent
+        moss: {
+          400: '#a3b18a', // Lighter accent, sage-like
+          500: '#8f9f76', // Base moss
+          600: '#75885c', // Primary button / accent
+          700: '#5c6b48', // Hover states
+          800: '#465235', // Deep moss
+          900: '#2a331e', // Subtle background
         }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        serif: ['"Playfair Display"', 'serif'],
       }
     },
   },
