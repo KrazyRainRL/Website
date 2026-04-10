@@ -3,50 +3,50 @@ import { CheckCircle } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-dark-800 relative border-y border-dark-600">
+    <section id="about" className="py-32 bg-dark-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
           <div className="order-2 lg:order-1 relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-dark-700 border border-dark-600 relative group">
-               {/* Abstract placeholder for Carter's photo or graphic */}
-               <div className="absolute inset-0 bg-gradient-to-br from-forest-900/40 to-dark-900 mix-blend-overlay" />
-               <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full border-2 border-forest-500/30 flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-forest-900/50 flex items-center justify-center backdrop-blur-md">
-                        <span className="text-3xl font-bold text-forest-400">CB</span>
-                    </div>
-                  </div>
-               </div>
-            </div>
-
-            {/* Experience badge */}
-            <div className="absolute -bottom-6 -right-6 bg-dark-900 border border-dark-600 p-6 rounded-2xl shadow-xl">
-              <p className="text-4xl font-bold text-white mb-1">5+</p>
-              <p className="text-sm text-gray-400 uppercase tracking-wider">Years Experience</p>
+            <div className="aspect-square max-w-md mx-auto relative group">
+                <div className="absolute inset-0 bg-dark-800 border border-dark-600 group-hover:border-moss-900/50 transition-colors duration-700 z-10 flex items-center justify-center">
+                    <span className="font-serif text-6xl text-moss-500/20 italic">CB</span>
+                </div>
+                {/* Decorative offset blocks for a structural, designed feel */}
+                <div className="absolute -top-4 -left-4 w-24 h-24 border-t border-l border-moss-500/30 -z-0" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-moss-500/30 -z-0" />
             </div>
           </div>
 
           <div className="order-1 lg:order-2">
-            <h2 className="text-forest-500 font-semibold tracking-wide uppercase text-sm mb-3">About Me</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Building digital solutions that matter.</h3>
-            <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-              Hi, I'm Carter Bailey. I specialize in bridging the gap between design and engineering to create beautiful, functional, and user-centric digital experiences.
-            </p>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-              Whether you're a startup looking to build your first MVP or an established business needing a digital overhaul, I bring a detail-oriented, earthy, and modern approach to every line of code.
-            </p>
+            <div className="inline-flex items-center space-x-3 mb-6">
+              <span className="w-8 h-[1px] bg-moss-500" />
+              <span className="text-xs font-medium text-moss-400 uppercase tracking-widest">About</span>
+            </div>
+            <h3 className="font-serif text-4xl md:text-5xl font-medium text-white leading-tight mb-8">
+              Building digital solutions <br/>
+              <span className="text-moss-400 italic">that matter.</span>
+            </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-6 text-gray-400 text-lg font-light leading-relaxed mb-10">
+                <p>
+                Hi, I'm Carter Bailey. I specialize in bridging the gap between engineering and design to create beautiful, highly functional digital experiences.
+                </p>
+                <p>
+                Whether you're a startup launching a minimal MVP or an established business needing a sophisticated digital overhaul, I bring a detail-oriented, structured, and premium approach to every line of code.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-dark-600">
               {[
-                'Clean, maintainable code',
+                'Clean architecture',
                 'Modern tech stacks',
-                'Pixel-perfect design',
+                'Minimalist design',
                 'Clear communication'
               ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-forest-500 flex-shrink-0" />
-                  <span className="text-gray-300 font-medium">{item}</span>
+                <div key={index} className="flex items-center space-x-4">
+                  <div className="w-[4px] h-[4px] bg-moss-500 rounded-full" />
+                  <span className="text-gray-300 text-sm tracking-wide">{item}</span>
                 </div>
               ))}
             </div>
