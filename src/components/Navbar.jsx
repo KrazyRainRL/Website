@@ -34,7 +34,7 @@ const Navbar = () => {
             ))}
             <a
               href="#contact"
-              className="px-6 py-3 rounded-sm bg-moss-600 hover:bg-moss-500 text-white text-sm font-medium tracking-wide transition-colors duration-300"
+              className="px-7 py-3 rounded-full bg-moss-600 hover:bg-moss-500 text-white text-sm font-medium tracking-wide transition-colors duration-300"
             >
               Let's Talk
             </a>
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-5 py-4 bg-moss-600 hover:bg-moss-500 text-white text-base font-medium transition-colors"
+                className="block w-full text-center px-5 py-4 rounded-full bg-moss-600 hover:bg-moss-500 text-white text-base font-medium transition-colors"
                 >
                 Let's Talk
                 </a>

@@ -28,8 +28,8 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center space-x-3 mb-6">
-              <span className="w-8 h-[1px] bg-moss-500" />
+            <div className="inline-flex items-center space-x-3 mb-6 bg-dark-800/50 px-4 py-2 rounded-full border border-dark-600/50">
+              <span className="w-2 h-2 rounded-full bg-moss-500" />
               <span className="text-xs font-medium text-moss-400 uppercase tracking-widest">Expertise</span>
             </div>
             <h2 className="font-serif text-4xl md:text-5xl font-medium text-white leading-tight">
@@ -38,25 +38,25 @@ const Services = () => {
             </h2>
           </div>
           <p className="text-gray-400 text-lg max-w-md font-light leading-relaxed">
-            A comprehensive suite of development services. Every project is built with clean architecture and an eye for minimalist design.
+            A comprehensive suite of development services. Every project is built with clean architecture and an eye for welcoming, round design.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="bg-dark-800 p-10 border border-dark-600 hover:border-moss-600/30 transition-colors duration-500 group relative overflow-hidden"
+                className="bg-dark-800 p-10 rounded-3xl border border-dark-600 hover:border-moss-600/30 hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden shadow-lg shadow-dark-900/50"
               >
-                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                    <Icon className="w-32 h-32 text-moss-500" strokeWidth={0.5} />
+                <div className="absolute -top-10 -right-10 p-6 opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all duration-700">
+                    <Icon className="w-48 h-48 text-moss-500" strokeWidth={0.5} />
                 </div>
 
                 <div className="relative z-10">
-                    <div className="w-12 h-12 border border-dark-600 flex items-center justify-center mb-8 bg-dark-900 group-hover:bg-moss-900/20 transition-colors duration-500">
-                    <Icon className="h-5 w-5 text-moss-500" strokeWidth={1.5} />
+                    <div className="w-14 h-14 rounded-2xl border border-dark-600 flex items-center justify-center mb-8 bg-dark-900 group-hover:bg-moss-900/30 group-hover:border-moss-700/50 transition-colors duration-500">
+                    <Icon className="h-6 w-6 text-moss-500" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-serif text-2xl font-medium text-white mb-4">{service.title}</h3>
                     <p className="text-gray-400 mb-8 font-light leading-relaxed text-sm">
@@ -64,8 +64,8 @@ const Services = () => {
                     </p>
                     <ul className="space-y-3">
                     {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-center text-xs text-gray-300 uppercase tracking-wider">
-                        <span className="w-[3px] h-[3px] bg-moss-500 mr-4" />
+                        <li key={i} className="flex items-center text-xs text-gray-300 tracking-wide bg-dark-900/50 py-2 px-3 rounded-xl border border-dark-600/30">
+                        <span className="w-1.5 h-1.5 rounded-full bg-moss-500 mr-3" />
                         {feature}
                         </li>
                     ))}
