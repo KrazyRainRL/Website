@@ -1,7 +1,25 @@
-import React from 'react';
-import { Mail, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, MapPin, Loader2, Check } from 'lucide-react';
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      e.target.reset();
+
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 3000);
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-32 bg-dark-900 relative border-t border-dark-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,22 +63,30 @@ const Contact = () => {
           </div>
 
           <div className="bg-dark-800 p-10 border border-dark-600 relative">
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-8" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label htmlFor="name" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Full Name</label>
+                  <label htmlFor="name" className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+                    Full Name <span className="text-moss-500">*</span>
+                  </label>
                   <input
                     type="text"
                     id="name"
+                    required
+                    aria-required="true"
                     className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-white focus:outline-none focus:border-moss-500 transition-colors bg-transparent"
                     placeholder="John Doe"
                   />
                 </div>
                 <div className="space-y-3">
-                  <label htmlFor="email" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Email Address</label>
+                  <label htmlFor="email" className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+                    Email Address <span className="text-moss-500">*</span>
+                  </label>
                   <input
                     type="email"
                     id="email"
+                    required
+                    aria-required="true"
                     className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-white focus:outline-none focus:border-moss-500 transition-colors bg-transparent"
                     placeholder="john@example.com"
                   />
@@ -81,9 +107,13 @@ const Contact = () => {
               </div>
 
               <div className="space-y-3">
-                <label htmlFor="message" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Message</label>
+                <label htmlFor="message" className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+                  Message <span className="text-moss-500">*</span>
+                </label>
                 <textarea
                   id="message"
+                  required
+                  aria-required="true"
                   rows={3}
                   className="w-full bg-dark-900 border-b border-dark-600 px-0 py-3 text-white focus:outline-none focus:border-moss-500 transition-colors bg-transparent resize-none"
                   placeholder="Tell me about your project..."
@@ -92,9 +122,22 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-moss-600 hover:bg-moss-500 text-white px-8 py-4 font-medium tracking-wide transition-colors duration-300 mt-4"
+                disabled={isSubmitting || isSuccess}
+                className="w-full bg-moss-600 hover:bg-moss-500 text-white px-8 py-4 font-medium tracking-wide transition-colors duration-300 mt-4 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : isSuccess ? (
+                  <>
+                    <Check className="w-5 h-5" />
+                    <span>Message Sent</span>
+                  </>
+                ) : (
+                  <span>Send Message</span>
+                )}
               </button>
             </form>
           </div>
