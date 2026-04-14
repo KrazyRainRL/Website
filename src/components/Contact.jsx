@@ -1,7 +1,17 @@
-import React from 'react';
-import { Mail, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
 
 const Contact = () => {
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setTimeout(() => {
+      setStatus('success');
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-32 bg-dark-900 relative border-t border-dark-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +55,7 @@ const Contact = () => {
           </div>
 
           <div className="bg-dark-800 p-10 border border-dark-600 relative">
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-8" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label htmlFor="name" className="text-xs font-medium text-gray-400 uppercase tracking-widest">Full Name</label>
@@ -92,9 +102,22 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-moss-600 hover:bg-moss-500 text-white px-8 py-4 font-medium tracking-wide transition-colors duration-300 mt-4"
+                disabled={status !== 'idle'}
+                className="w-full bg-moss-600 hover:bg-moss-500 text-white px-8 py-4 font-medium tracking-wide transition-colors duration-300 mt-4 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {status === 'idle' && 'Send Message'}
+                {status === 'submitting' && (
+                  <>
+                    <Loader2 className="animate-spin -ml-1 mr-2 h-5 w-5" />
+                    Sending...
+                  </>
+                )}
+                {status === 'success' && (
+                  <>
+                    <CheckCircle2 className="-ml-1 mr-2 h-5 w-5" />
+                    Message Sent
+                  </>
+                )}
               </button>
             </form>
           </div>
