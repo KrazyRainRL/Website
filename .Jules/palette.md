@@ -1,0 +1,3 @@
+## 2024-04-20 - Navbar Mobile Menu Accessibility
+**Learning:** Icon-only toggle buttons in React require explicit ARIA management (aria-expanded, aria-controls, and dynamic aria-labels) coupled with `aria-hidden="true"` on the SVGs to prevent screen readers from announcing confusing or redundant structural names. Furthermore, maintaining layout alignment while increasing mobile touch targets can be achieved using padding (`p-2`) offset by negative margin (`-mr-2`).
+**Action:** Always ensure icon-only buttons have an accessible name, explicitly link controllers to their targets using `aria-controls`, and use `focus-visible` classes to ensure strong keyboard navigation indicators.
