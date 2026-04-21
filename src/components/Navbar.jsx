@@ -27,14 +27,14 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-400 hover:text-moss-400 transition-colors duration-300 text-sm font-medium tracking-widest uppercase"
+                className="text-gray-400 hover:text-moss-400 focus-visible:ring-2 focus-visible:ring-moss-500 focus-visible:outline-none transition-colors duration-300 text-sm font-medium tracking-widest uppercase"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#contact"
-              className="px-6 py-3 rounded-sm bg-moss-600 hover:bg-moss-500 text-white text-sm font-medium tracking-wide transition-colors duration-300"
+              className="px-6 py-3 rounded-sm bg-moss-600 hover:bg-moss-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none text-white text-sm font-medium tracking-wide transition-colors duration-300"
             >
               Let's Talk
             </a>
@@ -44,7 +44,10 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu"
+              className="text-gray-400 hover:text-white focus-visible:ring-2 focus-visible:ring-moss-500 focus-visible:outline-none transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
             </button>
@@ -54,14 +57,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-dark-800 border-b border-dark-600">
+        <div id="mobile-menu" className="md:hidden bg-dark-800 border-b border-dark-600">
           <div className="px-4 py-6 space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-lg font-serif text-gray-300 hover:text-moss-400 transition-colors"
+                className="block text-lg font-serif text-gray-300 hover:text-moss-400 focus-visible:ring-2 focus-visible:ring-moss-500 focus-visible:outline-none transition-colors"
               >
                 {link.name}
               </a>
@@ -70,7 +73,7 @@ const Navbar = () => {
                 <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-5 py-4 bg-moss-600 hover:bg-moss-500 text-white text-base font-medium transition-colors"
+                className="block w-full text-center px-5 py-4 bg-moss-600 hover:bg-moss-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none text-white text-base font-medium transition-colors"
                 >
                 Let's Talk
                 </a>
