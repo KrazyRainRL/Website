@@ -1,0 +1,3 @@
+## 2024-05-18 - Fix Icon-only Button Accessibility
+**Learning:** The codebase contained an anti-pattern of using Tailwind's `focus:outline-none` on an icon-only button without an explicit `focus-visible:ring-*` fallback. Additionally, the icon-only mobile menu button lacked ARIA attributes, making it completely invisible to screen readers and difficult to use via keyboard navigation.
+**Action:** When working with buttons, especially icon-only ones, always ensure an `aria-label` is present to describe the action. Furthermore, when removing default focus outlines with `focus:outline-none`, always provide a custom visible focus state using `focus-visible` classes to maintain keyboard accessibility.
