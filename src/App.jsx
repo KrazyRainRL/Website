@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+const Services = React.lazy(() => import('./components/Services'));
+const About = React.lazy(() => import('./components/About'));
+const Contact = React.lazy(() => import('./components/Contact'));
+const Footer = React.lazy(() => import('./components/Footer'));
 
 function App() {
   return (
@@ -12,11 +12,16 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Contact />
+        {/* ⚡ Bolt: Code-split below-the-fold content to improve initial load time */}
+        <Suspense fallback={null}>
+          <Services />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
