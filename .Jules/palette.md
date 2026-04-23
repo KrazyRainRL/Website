@@ -1,0 +1,3 @@
+## 2026-04-23 - Focus Outline and Empty Href Anti-patterns
+**Learning:** Found two common accessibility and UX anti-patterns in the app's components: using Tailwind's `focus:outline-none` on icon-only buttons without a `focus-visible` fallback (breaking keyboard navigation), and using empty `href="#"` links (causing top-of-page jumps).
+**Action:** When adding or modifying interactive elements, always pair `focus:outline-none` with explicit `focus-visible:ring-*` styles to ensure visual focus indicators for keyboard users. Replace empty `href="#"` links with functional internal anchors (e.g., `href="#home"`) or convert them to semantic elements if they don't navigate.
