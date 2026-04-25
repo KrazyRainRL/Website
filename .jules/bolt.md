@@ -1,0 +1,3 @@
+## 2024-04-25 - React.lazy loading behavior without IntersectionObserver
+**Learning:** Using `React.lazy()` with `<Suspense>` to code-split below-the-fold components separates the chunks from the main bundle, reducing the initial payload size. However, without an `IntersectionObserver` or similar logic to conditionally render the components based on scroll position, the network requests for these chunks are still triggered immediately on the initial render, not deferred until scroll.
+**Action:** When adding comments for this optimization, accurately describe it as reducing the initial main bundle size rather than preventing downloads before scrolling, unless conditional rendering logic is also implemented.
