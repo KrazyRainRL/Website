@@ -1,0 +1,3 @@
+## 2025-02-28 - Focus State Fallbacks
+**Learning:** The application extensively uses `focus:outline-none` on interactive elements (inputs, textareas, selects, and buttons) without corresponding `focus-visible:ring-*` fallbacks. This causes severe accessibility issues as keyboard users have no visual indication of which element has focus. This pattern is particularly dangerous in custom form components and icon buttons where browser defaults are fully stripped.
+**Action:** Always pair `focus:outline-none` with explicit `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 focus-visible:ring-moss-500` (or similar, utilizing the existing palette) to ensure keyboard accessibility is maintained.
