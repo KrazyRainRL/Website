@@ -1,0 +1,3 @@
+## 2025-02-27 - Addressing missing focus indicators and disruptive placeholder links
+**Learning:** The codebase relies on Tailwind's `focus:outline-none` across interactive elements, which negatively impacts keyboard accessibility as there are no visible focus fallbacks. Additionally, components like the Navbar and Footer use `href="#"` for logos and placeholders, creating an unintended page-jump to the top.
+**Action:** Replace `href="#"` for logos pointing to the hero section with `href="#home"`. For placeholders with no intended destination URL, convert them into `<span>` elements with a `cursor-default` utility class. Always pair `focus:outline-none` with explicit `focus-visible:ring-*` styles to ensure visual focus indicators are present for keyboard users.
