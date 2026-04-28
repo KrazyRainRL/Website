@@ -1,6 +1,13 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
+const ABOUT_ITEMS = [
+  'Clean architecture',
+  'Modern tech stacks',
+  'Minimalist design',
+  'Clear communication'
+];
+
 const About = () => {
   return (
     <section id="about" className="py-32 bg-dark-900 relative">
@@ -38,12 +45,7 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-dark-600">
-              {[
-                'Clean architecture',
-                'Modern tech stacks',
-                'Minimalist design',
-                'Clear communication'
-              ].map((item, index) => (
+              {ABOUT_ITEMS.map((item, index) => (
                 <div key={index} className="flex items-center space-x-4">
                   <div className="w-[4px] h-[4px] bg-moss-500 rounded-full" />
                   <span className="text-gray-300 text-sm tracking-wide">{item}</span>
