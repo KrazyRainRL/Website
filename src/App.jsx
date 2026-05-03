@@ -1,10 +1,12 @@
-import React from 'react';
+import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+
+// Bolt: Code-splitting below-the-fold components to reduce initial bundle size and improve page load performance.
+const Services = lazy(() => import('./components/Services'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
   return (
@@ -12,11 +14,15 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Contact />
+        <Suspense fallback={<div className="py-32 flex justify-center items-center text-gray-400">Loading...</div>}>
+          <Services />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="py-12 flex justify-center items-center text-gray-400">Loading...</div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
