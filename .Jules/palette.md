@@ -1,0 +1,3 @@
+## 2024-05-08 - Added Focus Visible Fallbacks to Mobile Menu Toggle
+**Learning:** This app's components have an anti-pattern of using Tailwind's `focus:outline-none` without `focus-visible` fallbacks, which breaks keyboard accessibility. We must explicitly pair `focus:outline-none` with visual focus indicators like `focus-visible:ring-2 focus-visible:ring-moss-500`. Furthermore, stateful icon toggles missing `aria-expanded` attributes are common here.
+**Action:** When working on interactive elements, always pair `focus:outline-none` with explicit `focus-visible:ring-*` styles to ensure visual focus indicators are present for keyboard users, and add missing `aria-label` and `aria-expanded` attributes to icon-only buttons.
