@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex-shrink-0">
-            <a href="#" className="font-serif text-2xl font-medium tracking-wide text-white">
+            <a href="#home" className="font-serif text-2xl font-medium tracking-wide text-white">
               Carter<span className="text-moss-500 italic">Bailey</span>.
             </a>
           </div>
@@ -44,7 +44,9 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              className="text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
             </button>

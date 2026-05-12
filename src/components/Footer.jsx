@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end border-b border-dark-600 pb-12">
           <div className="mb-8 md:mb-0">
-            <a href="#" className="font-serif text-3xl font-medium tracking-wide text-white">
+            <a href="#home" className="font-serif text-3xl font-medium tracking-wide text-white">
               Carter<span className="text-moss-500 italic">Bailey</span>.
             </a>
             <p className="text-gray-500 text-sm mt-4 font-light tracking-wide">
@@ -15,15 +15,15 @@ const Footer = () => {
           </div>
 
           <div className="flex space-x-8">
-            <a href="#" className="text-gray-500 hover:text-moss-400 transition-colors uppercase text-xs tracking-widest">
+            <span className="text-gray-500 cursor-default uppercase text-xs tracking-widest">
               LinkedIn
-            </a>
-            <a href="#" className="text-gray-500 hover:text-moss-400 transition-colors uppercase text-xs tracking-widest">
+            </span>
+            <span className="text-gray-500 cursor-default uppercase text-xs tracking-widest">
               GitHub
-            </a>
-            <a href="#" className="text-gray-500 hover:text-moss-400 transition-colors uppercase text-xs tracking-widest">
+            </span>
+            <span className="text-gray-500 cursor-default uppercase text-xs tracking-widest">
               Twitter
-            </a>
+            </span>
           </div>
         </div>
 
@@ -32,8 +32,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Carter Bailey. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6 text-xs text-gray-600 tracking-wider">
-            <a href="#" className="hover:text-gray-400 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-gray-400 transition-colors">Terms</a>
+            <span className="cursor-default">Privacy</span>
+            <span className="cursor-default">Terms</span>
           </div>
         </div>
       </div>
