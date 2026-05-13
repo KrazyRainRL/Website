@@ -1,10 +1,14 @@
-import React from 'react';
+import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+// ⚡ Bolt Optimization: Code-split below-the-fold sections
+// Reduces initial main bundle size by moving these heavy sections
+// into separate chunks that load after the critical Hero section paints.
+const Services = lazy(() => import('./components/Services'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
 
 function App() {
   return (
@@ -12,9 +16,12 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Contact />
+        {/* ⚡ Bolt Optimization: Provide a dark background placeholder to minimize layout shift while chunks load */}
+        <Suspense fallback={<div className="py-32 bg-dark-900 min-h-[50vh]"></div>}>
+          <Services />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
     </div>
