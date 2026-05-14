@@ -1,0 +1,3 @@
+## 2024-05-14 - Mobile Menu Accessibility and Link Targets
+**Learning:** The project's icon-only mobile menu toggle was lacking `aria-expanded` and an `aria-label`, hiding its state from screen readers. Additionally, `focus:outline-none` was used without a `focus-visible` fallback, breaking keyboard focus visibility. Finally, empty `href="#"` logo links caused unexpected page jumps.
+**Action:** Always add `aria-expanded` and `aria-label` to stateful icon toggles, pair `focus:outline-none` with `focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm`, and update empty `#` hrefs to functional internal anchor IDs.
