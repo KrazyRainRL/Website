@@ -1,4 +1,3 @@
-import React from 'react';
 import { Monitor, Smartphone, Cpu } from 'lucide-react';
 
 const services = [
@@ -24,7 +23,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 bg-dark-900 relative">
+    <section className="py-32 bg-dark-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
