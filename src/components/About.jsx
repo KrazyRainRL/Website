@@ -3,7 +3,7 @@ import { CheckCircle } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-32 bg-dark-900 relative">
+    <section className="py-32 bg-dark-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
