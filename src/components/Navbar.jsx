@@ -44,7 +44,9 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              aria-expanded={isOpen}
+              aria-label="Toggle mobile menu"
+              className="text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
             </button>
