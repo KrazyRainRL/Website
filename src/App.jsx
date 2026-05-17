@@ -1,10 +1,12 @@
-import React from 'react';
+import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+// Code-split below-the-fold sections to reduce initial bundle size
+const Services = lazy(() => import('./components/Services'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
 
 function App() {
   return (
@@ -12,9 +14,11 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Contact />
+        <Suspense fallback={<div className="py-32 text-center text-gray-500">Loading sections...</div>}>
+          <Services />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
     </div>
