@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+
+// Lazy load below-the-fold components to reduce initial main bundle size
+const Services = lazy(() => import('./components/Services'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
   return (
@@ -12,11 +14,15 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Contact />
+        <Suspense fallback={<div className="min-h-screen bg-dark-900" />}>
+          <Services />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<footer className="bg-dark-900 pt-20 pb-10 min-h-[200px]" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
