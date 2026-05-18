@@ -2,14 +2,14 @@ import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
+const navLinks = [
+  { name: 'Services', href: '#services' },
+  { name: 'About', href: '#about' },
+  { name: 'Contact', href: '#contact' },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   return (
     <nav className="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-600">
