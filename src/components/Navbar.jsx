@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex-shrink-0">
-            <a href="#" className="font-serif text-2xl font-medium tracking-wide text-white">
+            <a href="#home" className="font-serif text-2xl font-medium tracking-wide text-white focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm outline-none">
               Carter<span className="text-moss-500 italic">Bailey</span>.
             </a>
           </div>
@@ -27,14 +27,14 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-400 hover:text-moss-400 transition-colors duration-300 text-sm font-medium tracking-widest uppercase"
+                className="text-gray-400 hover:text-moss-400 transition-colors duration-300 text-sm font-medium tracking-widest uppercase focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm outline-none"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#contact"
-              className="px-6 py-3 rounded-sm bg-moss-600 hover:bg-moss-500 text-white text-sm font-medium tracking-wide transition-colors duration-300"
+              className="px-6 py-3 rounded-sm bg-moss-600 hover:bg-moss-500 text-white text-sm font-medium tracking-wide transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-moss-500 outline-none"
             >
               Let's Talk
             </a>
@@ -44,7 +44,9 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              className="text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
             </button>
@@ -61,7 +63,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-lg font-serif text-gray-300 hover:text-moss-400 transition-colors"
+                className="block text-lg font-serif text-gray-300 hover:text-moss-400 transition-colors focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm outline-none w-fit"
               >
                 {link.name}
               </a>
@@ -70,7 +72,7 @@ const Navbar = () => {
                 <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-5 py-4 bg-moss-600 hover:bg-moss-500 text-white text-base font-medium transition-colors"
+                className="block w-full text-center px-5 py-4 bg-moss-600 hover:bg-moss-500 text-white text-base font-medium transition-colors focus-visible:ring-2 focus-visible:ring-moss-500 rounded-sm outline-none"
                 >
                 Let's Talk
                 </a>
