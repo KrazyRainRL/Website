@@ -1,4 +1,3 @@
-import React from 'react';
 import { Monitor, Smartphone, Cpu } from 'lucide-react';
 
 const services = [
