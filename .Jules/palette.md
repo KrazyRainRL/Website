@@ -1,0 +1,3 @@
+## 2025-02-20 - Stateful Mobile Menus Require Dynamic ARIA Attributes
+**Learning:** Icon-only toggle buttons for mobile menus often lack context for screen readers. Simply adding an `aria-label` is insufficient when the button toggles a section; it must also communicate state (`aria-expanded`) and the target it controls (`aria-controls`) to provide a seamless semantic experience.
+**Action:** Always ensure that stateful toggle buttons in navigation structures have dynamic `aria-expanded` attributes tied to their state variable, and `aria-controls` pointing to the ID of the collapsible container.
