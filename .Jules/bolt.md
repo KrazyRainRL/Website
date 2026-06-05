@@ -1,0 +1,3 @@
+## 2025-06-05 - Optimizing Google Fonts Loading
+**Learning:** Found that `@import` was used inside `src/index.css` to load Google Fonts. This is a common anti-pattern in modern web development that creates a render-blocking network waterfall (HTML must download -> CSS must download -> Font CSS must download).
+**Action:** When adding or discovering external fonts, always ensure they are loaded via `<link rel="preconnect">` and `<link rel="stylesheet">` tags directly in the HTML `<head>` rather than CSS `@import`. This allows the browser to discover and fetch the font stylesheet in parallel with the main CSS, significantly improving First Contentful Paint (FCP).
