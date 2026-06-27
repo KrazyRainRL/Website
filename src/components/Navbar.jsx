@@ -44,9 +44,12 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close main menu" : "Open main menu"}
+              aria-controls="mobile-menu"
+              className="text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-moss-500 rounded p-1 transition-colors"
             >
-              {isOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
+              {isOpen ? <X aria-hidden="true" className="h-6 w-6" strokeWidth={1.5} /> : <Menu aria-hidden="true" className="h-6 w-6" strokeWidth={1.5} />}
             </button>
           </div>
         </div>
@@ -54,7 +57,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-dark-800 border-b border-dark-600">
+        <div id="mobile-menu" className="md:hidden bg-dark-800 border-b border-dark-600">
           <div className="px-4 py-6 space-y-4">
             {navLinks.map((link) => (
               <a
