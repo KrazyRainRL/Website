@@ -44,9 +44,11 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              className="text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-moss-500 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 rounded-sm transition-colors"
             >
-              {isOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
+              {isOpen ? <X aria-hidden="true" className="h-6 w-6" strokeWidth={1.5} /> : <Menu aria-hidden="true" className="h-6 w-6" strokeWidth={1.5} />}
             </button>
           </div>
         </div>
